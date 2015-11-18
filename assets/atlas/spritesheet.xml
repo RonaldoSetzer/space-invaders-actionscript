@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:8eb1acd896a1db3b393ef26111fdf6c6:f90d4bac5bc3aca3bc9c1fef1ff565d4:ef7663426bf705b25566a93aef3a1571$ -->
+<TextureAtlas imagePath="spritesheet.png" width="512" height="256">
+    <SubTexture name="space_invaders_logo" x="2" y="2" width="435" height="191" frameX="-10" frameY="-8" frameWidth="460" frameHeight="215"/>
+    <SubTexture name="enemy_bonus_frame_02" x="2" y="195" width="54" height="28" frameX="0" frameY="-5" frameWidth="54" frameHeight="33"/>
+    <SubTexture name="enemy_bonus_frame_01" x="439" y="2" width="54" height="28" frameX="0" frameY="0" frameWidth="54" frameHeight="33"/>
+    <SubTexture name="explosion_frame_02" x="105" y="195" width="45" height="33"/>
+    <SubTexture name="explosion_frame_01" x="58" y="195" width="45" height="33"/>
+    <SubTexture name="cannon_frame_01" x="152" y="195" width="45" height="30"/>
+    <SubTexture name="enemy_03_frame_01" x="243" y="195" width="42" height="30"/>
+    <SubTexture name="enemy_03_frame_02" x="199" y="195" width="42" height="30"/>
+    <SubTexture name="enemy_02_frame_02" x="287" y="195" width="39" height="30"/>
+    <SubTexture name="enemy_02_frame_01" x="328" y="195" width="39" height="30"/>
+    <SubTexture name="enemy_01_frame_02" x="401" y="195" width="30" height="30"/>
+    <SubTexture name="enemy_01_frame_01" x="369" y="195" width="30" height="30"/>
+    <SubTexture name="bullet_frame_01" x="433" y="195" width="12" height="21"/>
+</TextureAtlas>
