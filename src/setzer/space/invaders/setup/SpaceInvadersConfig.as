@@ -6,7 +6,10 @@ import robotlegs.bender.framework.api.IConfig;
 import robotlegs.bender.framework.api.IContext;
 	import setzer.space.invaders.events.FlowEvent;
 	import setzer.space.invaders.mediators.HomeViewMediator;
+	import setzer.space.invaders.mediators.MapViewMediator;
 	import setzer.space.invaders.views.HomeView;
+	import setzer.space.invaders.views.MapView;
+
 	import starling.events.EventDispatcher;
 	
 	public class SpaceInvadersConfig implements IConfig
@@ -39,11 +42,13 @@ import robotlegs.bender.framework.api.IContext;
 		public function mapMediators():void
 		{
 			mediatorMap.map( HomeView ).toMediator( HomeViewMediator );
+			mediatorMap.map( MapView ).toMediator( MapViewMediator );
 		}
 	
 		public function mapFlowManager():void
 		{
 			flowManager.mapSetView( FlowEvent.SHOW_HOME_VIEW, HomeView );
+			flowManager.mapSetView( FlowEvent.SHOW_MAP_VIEW, MapView );
 		}
 	}
 }
