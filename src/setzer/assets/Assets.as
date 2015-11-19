@@ -1,8 +1,7 @@
 package setzer.assets
 {
 	import flash.display.Bitmap;
-	import flash.display.BitmapData;
-	
+
 	import starling.text.BitmapFont;
 	import starling.text.TextField;
 	import starling.textures.Texture;
@@ -10,24 +9,6 @@ package setzer.assets
 
 	public class Assets
 	{	
-		/* TEXTURA ATLAS */
-		
-		[Embed(source="/../assets/atlas/spritesheet.png")]
-		private static var SpaceInvadersAtlasPNG:Class;
-
-		[Embed(source="/../assets/atlas/spritesheet.xml", mimeType="application/octet-stream")]
-		private static var SpaceInvadersAtlasXML:Class;
-		
-		/* FONT */
-		
-		[Embed(source="/../assets/fonts/PushStart2P.fnt", mimeType="application/octet-stream")]
-		private static const PushStart2PXml:Class;
-			
-		[Embed(source = "/../assets/fonts/PushStart2P.png")]
-		private static const PushStart2PTexture:Class;
-
-		/* ATLAS */
-
 		private static var atlas:TextureAtlas;
 
 		public static function init():void
@@ -35,27 +16,33 @@ package setzer.assets
 			
 			atlas = createTextureAtlas();
 			
-			TextField.registerBitmapFont( createPushStartFont() );
+			TextField.registerBitmapFont( createBitmapFont( Embeds.PushStart2PTexture, Embeds.PushStart2PXml) );
+			TextField.registerBitmapFont( createBitmapFont( Embeds.SimpleSmallPixel7Texture, Embeds.SimpleSmallPixel7Xml) );
 		}
 
 		public static function getTexture( key:String ):Texture
 		{
 			return atlas.getTexture( key );
 		}
-		
+
+		public static function getTextures( key:String ):Vector.<Texture>
+		{
+			return atlas.getTextures( key );
+		}
+
 		private static function createTextureAtlas():TextureAtlas
 		{
-			var atlasTexture:Texture = Texture.fromBitmap( new SpaceInvadersAtlasPNG());
-			var atlasXML:XML = XML( new SpaceInvadersAtlasXML() );
+			var atlasTexture:Texture = Texture.fromBitmap( new Embeds.SpaceInvadersAtlasPNG());
+			var atlasXML:XML = XML( new Embeds.SpaceInvadersAtlasXML() );
 			return new TextureAtlas( atlasTexture, atlasXML )
 		}
 		
-		private static function createPushStartFont():BitmapFont
+		private static function createBitmapFont( classTexture:Class, classXml:Class):BitmapFont
 		{
-			var bmpFontBmp:Bitmap = new PushStart2PTexture();
+			var bmpFontBmp:Bitmap = new classTexture();
 			bmpFontBmp.smoothing = false;
 			
-			var bmpFontXml:XML = XML( new PushStart2PXml() );
+			var bmpFontXml:XML = XML( new classXml() );
 
 			var bmpTexture:Texture = Texture.fromBitmap( bmpFontBmp );
 			return new BitmapFont( bmpTexture, bmpFontXml);
