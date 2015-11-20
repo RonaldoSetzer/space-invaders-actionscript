@@ -18,7 +18,7 @@ package setzer.space.invaders.mediators
 
 		private function onStartHandler( e:Event ):void
 		{
-			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_MAP_VIEW ))
+			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_STAGE_SELECT_VIEW ))
 		}
 
 		override public function destroy():void

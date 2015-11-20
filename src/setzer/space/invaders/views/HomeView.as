@@ -7,6 +7,7 @@ package setzer.space.invaders.views
 
 	import setzer.assets.AssetLib;
 	import setzer.assets.StarlingFactory;
+	import setzer.assets.TextLib;
 	import setzer.utils.ScreenSize;
 
 	import starling.core.Starling;
@@ -62,14 +63,14 @@ package setzer.space.invaders.views
 
 			createEnemiesParade();
 
-            var text:TextField = StarlingFactory.getText( 400, "Hello Space!", 14);
+            var text:TextField = StarlingFactory.getText( 400, TextLib.HELLO_SPACE, 14);
             text.vAlign = TextFormatAlign.CENTER;
             text.x = ScreenSize.STAGE_WIDTH*.5;
             text.y = ScreenSize.STAGE_HEIGHT*.6;
             text.alignPivot();
             addChild( text );
 
-			var textInfo:TextField = StarlingFactory.getText( 400, "Tap to Start!");
+			var textInfo:TextField = StarlingFactory.getText( 400, TextLib.TAP_TO_START);
 			textInfo.vAlign = TextFormatAlign.CENTER;
 			textInfo.x = ScreenSize.STAGE_WIDTH*.5;
 			textInfo.y = ScreenSize.STAGE_HEIGHT*.7;

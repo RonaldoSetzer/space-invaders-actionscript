@@ -2,11 +2,10 @@ package setzer.space.invaders.views
 {
 	import starling.display.Sprite;
 
-	public class MapView extends Sprite
+	public class GameView extends Sprite
 	{
-		public function MapView()
+		public function GameView()
 		{
-			super();
 		}
 	}
 }

@@ -20,9 +20,9 @@ package setzer.assets
 			return  image;
 		}
 
-		public static function getText( width:Number, text:String, size:int = 28, color:int = 0xFFFFFF):TextField
+		public static function getText( width:Number, text:String, size:int = TextLib.FONT_SIZE, color:int = 0xFFFFFF):TextField
 		{
-			return new TextField( width, size + 5, text, "Small Pixel7", size, color )
+			return new TextField( width, size + 5, text, TextLib.FONT_NAme, size, color )
 		}
 
 		public static function getQuad( width:Number, height:Number, color:int ):Quad
