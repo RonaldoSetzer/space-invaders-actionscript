@@ -19,6 +19,8 @@ package setzer.space.invaders.entities
 			_graphic = StarlingFactory.getImage( key );
 			_graphic.alignPivot();
 			_update = true;
+			speedX = 0;
+			speedY = 0;
 		}
 
 		public function render():void
@@ -27,13 +29,18 @@ package setzer.space.invaders.entities
 
 			_graphic.x = x;
 			_graphic.y = y;
+			_update = false;
 		}
 
 		public function move():void
 		{
-			_update = ( speedX==0 && speedY ==0 );
+			if ( speedX == 0 && speedY == 0 ) return;
+
+			_update = true;
 			x += speedX;
 			y += speedY;
+			speedX = 0;
+			speedY = 0;
 		}
 
 		public function get graphic():Image
