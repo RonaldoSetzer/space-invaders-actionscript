@@ -1,15 +1,19 @@
 package setzer.space.invaders.setup
 {
+	import robotlegs.bender.extensions.eventCommandMap.api.IEventCommandMap;
 	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
 	import robotlegs.bender.extensions.palidor.api.IFlowManager;
 	import robotlegs.bender.framework.api.IConfig;
 	import robotlegs.bender.framework.api.IContext;
 
+	import setzer.space.invaders.commands.CreateLevelCommand;
 	import setzer.space.invaders.events.FlowEvent;
+	import setzer.space.invaders.events.LevelEvent;
+	import setzer.space.invaders.managers.GameManager;
 	import setzer.space.invaders.mediators.GameViewMediator;
 	import setzer.space.invaders.mediators.HomeViewMediator;
 	import setzer.space.invaders.mediators.StageSelectViewMediator;
-	import setzer.space.invaders.models.CurrentLevelModel;
+	import setzer.space.invaders.models.LevelModel;
 	import setzer.space.invaders.views.GameView;
 	import setzer.space.invaders.views.HomeView;
 	import setzer.space.invaders.views.StageSelectView;
@@ -23,6 +27,9 @@ package setzer.space.invaders.setup
 
 		[Inject]
 		public var mediatorMap:IMediatorMap;
+
+		[Inject]
+		public var commandMap:IEventCommandMap;
 
 		[Inject]
 		public var context:IContext;
@@ -39,14 +46,26 @@ package setzer.space.invaders.setup
 		{
 			mapMediators();
 			mapModels();
+			mapManagers();
 			mapFlowManager();
-			
+			mapCommands();
+
 			eventDispatcher.dispatchEvent( new FlowEvent( FlowEvent.SHOW_HOME_VIEW ) );
+		}
+
+		private function mapManagers():void
+		{
+			context.injector.map( GameManager ).asSingleton();
+		}
+
+		private function mapCommands():void
+		{
+			commandMap.map( LevelEvent.CREATE_LEVEL ).toCommand( CreateLevelCommand );
 		}
 
 		private function mapModels():void
 		{
-			context.injector.map( CurrentLevelModel ).asSingleton();
+			context.injector.map( LevelModel ).asSingleton();
 		}
 		
 		public function mapMediators():void

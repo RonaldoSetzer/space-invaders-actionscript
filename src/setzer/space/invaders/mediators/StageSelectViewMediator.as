@@ -3,7 +3,7 @@ package setzer.space.invaders.mediators
 	import robotlegs.bender.extensions.palidor.api.StarlingMediator;
 
 	import setzer.space.invaders.events.FlowEvent;
-	import setzer.space.invaders.models.CurrentLevelModel;
+	import setzer.space.invaders.models.LevelModel;
 	import setzer.space.invaders.views.StageSelectView;
 	import setzer.space.invaders.views.components.StageSelectItem;
 
@@ -12,7 +12,7 @@ package setzer.space.invaders.mediators
 	public class StageSelectViewMediator extends StarlingMediator
 	{
 		[Inject]
-		public var currentLevelModel:CurrentLevelModel;
+		public var currentLevelModel:LevelModel;
 
 		override public function initialize():void
 		{
